@@ -41,7 +41,13 @@ For each `num`, check if `target - num` is already in the map.
 **Time Complexity**: `O(n)`  
 **Space Complexity**: `O(n)`
 
----
+## 📂 Code Files
+
+- `TwoSum_Brute.java`
+- `TwoSum_Optimal.java`
+- `TwoSum_Brute.cpp`
+- `TwoSum_Optimal.cpp`
+
 
 
 # ⚡ Problem 2: Maximum Subarray (Kadane's Algorithm)
