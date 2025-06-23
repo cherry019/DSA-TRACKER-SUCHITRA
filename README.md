@@ -169,164 +169,68 @@ Output: [0, 1, 2, 2, 2]
 - `SortColors_Optimal.java`
 - `SortColors_Brute.cpp`
 - `SortColors_Optimal.cpp`
-```text
 
 
 
-✅ Problem 4: Move Zeroes to the End
-###  Problem Statement : Given an array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 
-📊 DSA Pattern
-1.Brute Force: Create a temp array, copy non-zero and then 0s
-2.Optimal: Two-pointer approach (in-place swap)
+# 🟡 Problem 5: Move All Zeros to End
 
-🧪 Test Cases  :
-Input :   [0,1,0,3,12]    Output :    [1,3,12,0,0]  
-Input :  [1,0,2,0,0,3]    Output :    [1,2,3,0,0,0] 
-Input  : [0,0,0,1]        Output  :   [1,0,0,0]     
+## 📘 Problem Statement
+Given an integer array `nums`, move all `0`s to the end while maintaining the relative order of the non-zero elements.
 
-🚀 Java Solutions
-🔸 Brute Force Approach (Java):
-import java.util.*;
+📌 Do it **in-place** with **O(1)** extra space.
 
-public class MoveZeroesBrute {
-    public static void moveZeroes(int[] nums) {
-        int[] temp = new int[nums.length];
-        int index = 0;
+---
 
-  for (int num : nums) {
-            if (num != 0) temp[index++] = num;
-        }
+## 💡 Example Test Cases
 
-  for (int i = 0; i < nums.length; i++) {
-            nums[i] = temp[i];
-        }
-    }
+| Input             | Output           |
+|------------------|------------------|
+| `[0,1,0,3,12]`    | `[1,3,12,0,0]`    |
+| `[0,0,1]`         | `[1,0,0]`         |
+| `[1,2,3]`         | `[1,2,3]`         |
+| `[0,0,0]`         | `[0,0,0]`         |
 
-  public static void main(String[] args) {
-        int[][] testCases = {
-            {0, 1, 0, 3, 12},
-            {1, 0, 2, 0, 0, 3},
-            {0, 0, 0, 1}
-        };
+---
 
-  for (int[] test : testCases) {
-            moveZeroes(test);
-            System.out.println(Arrays.toString(test));
-        }
-    }
-}
+## 🧠 DSA Pattern
+- Two Pointer
+- In-place array manipulation
 
-🚀 C++ Solutions
-🔸 Brute Force Approach (C++): 
-#include <iostream>
-#include <vector>
-using namespace std;
+---
 
-void moveZeroesBrute(vector<int>& nums) {
-    vector<int> temp(nums.size(), 0);
-    int index = 0;
+## 💭 Brute Force Approach
 
-  for (int num : nums) {
-        if (num != 0) temp[index++] = num;
-    }
+1. Create a temp array or overwrite with non-zero elements.
+2. Fill remaining with 0s.
 
-  for (int i = 0; i < nums.size(); i++) {
-        nums[i] = temp[i];
-    }
-}
+### ⏱️ Time: O(n)  
+### 📦 Space: O(n)
 
-void printArray(vector<int> nums) {
-    for (int x : nums) cout << x << " ";
-    cout << endl;
-}
+---
 
-int main() {
-    vector<vector<int>> testCases = {
-        {0, 1, 0, 3, 12},
-        {1, 0, 2, 0, 0, 3},
-        {0, 0, 0, 1}
-    };
+## ⚡ Optimal Approach (Two Pointers)
 
-  for (auto& test : testCases) {
-        moveZeroesBrute(test);
-        printArray(test);
-    }
-}
+1. Use a pointer to track non-zero insert position.
+2. Traverse and swap as needed.
+
+### ⏱️ Time: O(n)  
+### 📦 Space: O(1)
+
+---
+
+## ✅ Code Files
+
+- `MoveZeros_Brute.java`
+- `MoveZeros_Optimal.java`
+- `MoveZeros_Brute.cpp`
+- `MoveZeros_Optimal.cpp`
+
+---
 
 
-⏳Complexity Analysis:
-⏱️ Time Complexity: O(n)
-💾 Space Complexity: O(n)
 
 
-🔹 Optimal Approach (Java – Two Pointers):
-import java.util.*;
-
-public class MoveZeroesOptimal {
-    public static void moveZeroes(int[] nums) {
-        int lastNonZero = 0;
-
-  for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != 0) {
-                int temp = nums[i];
-                nums[i] = nums[lastNonZero];
-                nums[lastNonZero] = temp;
-                lastNonZero++;
-            }
-        }
-    }
-
-  public static void main(String[] args) {
-        int[][] testCases = {
-            {0, 1, 0, 3, 12},
-            {1, 0, 2, 0, 0, 3},
-            {0, 0, 0, 1}
-        };
-
-  for (int[] test : testCases) {
-            moveZeroes(test);
-            System.out.println(Arrays.toString(test));
-        }
-    }
-}
-
-🔹 Optimal Approach (C++ – Two Pointers):
-#include <iostream>
-#include <vector>
-using namespace std;
-
-void moveZeroesOptimal(vector<int>& nums) {
-    int lastNonZero = 0;
-
-  for (int i = 0; i < nums.size(); i++) {
-        if (nums[i] != 0) {
-            swap(nums[lastNonZero++], nums[i]);
-        }
-    }
-}
-
-void printArray(vector<int> nums) {
-    for (int x : nums) cout << x << " ";
-    cout << endl;
-}
-
-int main() {
-    vector<vector<int>> testCases = {
-        {0, 1, 0, 3, 12},
-        {1, 0, 2, 0, 0, 3},
-        {0, 0, 0, 1}
-    };
-
-  for (auto& test : testCases) {
-        moveZeroesOptimal(test);
-        printArray(test);
-    }
-}
-
-⏳Complexity Analysis:
-⏱️ Time Complexity: O(n)
-💾 Space Complexity: O(1)
 
 ✅ Problem 5: Maximum Product Subarray
 ### Problem Statement : Given an integer array nums, find the subarray (contiguous elements) that has the maximum product, and return the product.
