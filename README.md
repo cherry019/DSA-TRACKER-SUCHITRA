@@ -173,7 +173,7 @@ Output: [0, 1, 2, 2, 2]
 
 
 
-# 🟡 Problem 5: Move All Zeros to End
+# 🟡 Problem 4: Move All Zeros to End
 
 ## 📘 Problem Statement
 Given an integer array `nums`, move all `0`s to the end while maintaining the relative order of the non-zero elements.
