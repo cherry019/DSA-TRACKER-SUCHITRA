@@ -13,10 +13,14 @@
 | \[3, 2, 4]      | 6      | \[1, 2] |
 | \[3, 3]         | 6      | \[0, 1] |
 
-🔸 Brute Force Approach
-⏳Complexity Analysis:
-⏱️ Time Complexity: O(n^2)
-💾 Space Complexity: O(1)
+## 💡 Brute Force Approach
+
+**Logic**: Check every pair `(i, j)` such that `nums[i] + nums[j] == target`
+
+**Time Complexity**: `O(n²)`  
+**Space Complexity**: `O(1)`  
+**Reason**: Two nested loops; no extra space used.
+
 
 🔹 Optimal Approach 
 ⏳Complexity Analysis:
