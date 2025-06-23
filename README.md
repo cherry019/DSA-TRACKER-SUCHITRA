@@ -38,133 +38,22 @@ Output : 1
 3.Input: [5,4,-1,7,8] 
 Output : 23
 
-🚀 Java Solutions
-🔸 Brute Force Approach (Java):
- public class MaxSubarrayBrute {
-    public static int maxSubArray(int[] nums) {
-        int maxSum = Integer.MIN_VALUE;
-        for (int i = 0; i < nums.length; i++) {
-            int sum = 0;
-            for (int j = i; j < nums.length; j++) {
-                sum += nums[j];
-                maxSum = Math.max(maxSum, sum);
-            }
-        }
-        return maxSum;
-    }
-
-  public static void main(String[] args) {
-        int[][] testCases = {
-            {-2,1,-3,4,-1,2,1,-5,4},
-            {1},
-            {5,4,-1,7,8}
-        };
-        for (int[] test : testCases) {
-            System.out.println("Max Subarray Sum: " + maxSubArray(test));
-        }
-    }
-}
-
-
-🚀 C++ Solutions
-🔸 Brute Force Approach (C++):
-#include <iostream>
-#include <climits>
-using namespace std;
-
-int maxSubArrayBrute(int arr[], int n) {
-    int maxSum = INT_MIN;
-    for (int i = 0; i < n; i++) {
-        int sum = 0;
-        for (int j = i; j < n; j++) {
-            sum += arr[j];
-            maxSum = max(maxSum, sum);
-        }
-    }
-    return maxSum;
-}
-
-int main() {
-    int arr1[] = {-2,1,-3,4,-1,2,1,-5,4};
-    int arr2[] = {1};
-    int arr3[] = {5,4,-1,7,8};
-
-  cout << maxSubArrayBrute(arr1, 9) << endl;
-  cout << maxSubArrayBrute(arr2, 1) << endl;
-  cout << maxSubArrayBrute(arr3, 5) << endl;
-}
-
+🔸 Brute Force Approac:
 ⏳Complexity Analysis:
 ⏱️ Time Complexity: O(n²)
 💾 Space Complexity: O(1)
 
 
-🔹 Optimal Approach (Kadane's Algorithm - Java):
-public class MaxSubarrayOptimal {
-    public static int maxSubArray(int[] nums) {
-        int maxSum = nums[0];
-        int currSum = nums[0];
-        for (int i = 1; i < nums.length; i++) {
-            currSum = Math.max(nums[i], currSum + nums[i]);
-            maxSum = Math.max(maxSum, currSum);
-        }
-        return maxSum;
-    }
-
-  public static void main(String[] args) {
-        int[][] testCases = {
-            {-2,1,-3,4,-1,2,1,-5,4},
-            {1},
-            {5,4,-1,7,8}
-        };
-        for (int[] test : testCases) {
-            System.out.println("Max Subarray Sum: " + maxSubArray(test));
-        }
-    }
-}
-
-
 ### 🔍 Code Explanation (Java Optimal)
 1.Initialize currSum and maxSum to first element.
-
 2.Traverse from index 1 onward.
-
 3.Update currSum:
-
   --If continuing the previous subarray is better, add to currSum.
-
   --Else, start new subarray from current element.
-
  4.Track max with maxSum.   ###
 
 
-
-🔹 Optimal Approach (Kadane’s Algorithm - C++):
-#include <iostream>
-#include <algorithm>
-using namespace std;
-
-int maxSubArrayOptimal(int arr[], int n) {
-    int maxSum = arr[0];
-    int currSum = arr[0];
-    for (int i = 1; i < n; i++) {
-        currSum = max(arr[i], currSum + arr[i]);
-        maxSum = max(maxSum, currSum);
-    }
-    return maxSum;
-}
-
-int main() {
-    int arr1[] = {-2,1,-3,4,-1,2,1,-5,4};
-    int arr2[] = {1};
-    int arr3[] = {5,4,-1,7,8};
-
-  cout << maxSubArrayOptimal(arr1, 9) << endl;
-  cout << maxSubArrayOptimal(arr2, 1) << endl;
-  cout << maxSubArrayOptimal(arr3, 5) << endl;
-}
-
-
+🔹 Optimal Approach:
 ⏳Complexity Analysis:
 ⏱️ Time Complexity: O(n)
 💾 Space Complexity: O(1)
