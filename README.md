@@ -284,7 +284,7 @@ Given an integer array `nums`, find the contiguous subarray (containing at least
 ---
 
 ## 📌 Tags
-`Array`, `Kadane`, `Dynamic Programming`, `Prefix Product`, `Sliding Window`
+`Array`, `Kadane`, `hash map`, `Prefix Product`, `Sliding Window`,`Two pointers`
 
 
 
