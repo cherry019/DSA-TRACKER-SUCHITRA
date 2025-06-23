@@ -228,180 +228,63 @@ Given an integer array `nums`, move all `0`s to the end while maintaining the re
 
 ---
 
+# 🔥 Problem 5: Maximum Product Subarray
 
+## 📘 Problem Statement
+Given an integer array `nums`, find the contiguous subarray (containing at least one number) which has the **largest product**, and return that product.
 
+---
 
+## 💡 Example Test Cases
 
-✅ Problem 5: Maximum Product Subarray
-### Problem Statement : Given an integer array nums, find the subarray (contiguous elements) that has the maximum product, and return the product.
+| Input                  | Output |
+|------------------------|--------|
+| `[2,3,-2,4]`           | `6`    |
+| `[-2,0,-1]`            | `0`    |
+| `[0,2]`                | `2`    |
+| `[-2,3,-4]`            | `24`   |
 
-📊 DSA Pattern
-1.Brute Force: Try all subarrays
-2.Optimal: Modified Kadane’s Algorithm (track max/min product)
+---
 
+## 🧠 DSA Pattern
+- Kadane's Algorithm variant (track min & max)
+- Sliding Window + Dynamic Product Tracking
 
-🧪 Test Cases
+---
 
-Input	: [2,3,-2,4]	           Output : 6
-Input	: [-2,0,-1]	             Output : 0
-Input	: [-2,3,-4]	             Output : 24
-Input	: [0,2,-2,-3,0,4,-1]	   Output : 12
+## 💭 Brute Force Approach
 
+1. Try all subarrays
+2. Keep track of max product
 
-🚀 Java Solutions
-🔸 Brute Force Approach (Java) : 
-public class MaxProductBrute {
-    public static int maxProduct(int[] nums) {
-        int max = Integer.MIN_VALUE;
+### ⏱️ Time: `O(n²)`  
+### 📦 Space: `O(1)`
 
-  for (int i = 0; i < nums.length; i++) {
-            int product = 1;
-            for (int j = i; j < nums.length; j++) {
-                product *= nums[j];
-                max = Math.max(max, product);
-            }
-        }
-        return max;
-    }
+---
 
-  public static void main(String[] args) {
-        int[][] testCases = {
-            {2, 3, -2, 4},
-            {-2, 0, -1},
-            {-2, 3, -4},
-            {0, 2, -2, -3, 0, 4, -1}
-        };
+## ⚡ Optimal Approach (Modified Kadane’s)
 
-  for (int[] test : testCases) {
-            System.out.println(maxProduct(test));
-        }
-    }
-}
+1. Track:
+   - `maxSoFar`
+   - `minSoFar` (to handle negative flips)
+2. Update result at each step
 
-🚀 C++ Solutions
-🔸 Brute Force Approach (C++)
-#include <iostream>
-#include <vector>
-#include <climits>
-using namespace std;
+### ⏱️ Time: `O(n)`  
+### 📦 Space: `O(1)`
 
-int maxProductBrute(vector<int>& nums) {
-    int maxProduct = INT_MIN;
+---
 
-  for (int i = 0; i < nums.size(); i++) {
-        int product = 1;
-        for (int j = i; j < nums.size(); j++) {
-            product *= nums[j];
-            maxProduct = max(maxProduct, product);
-        }
-    }
+## ✅ Code Files
 
-  return maxProduct;
-}
+- `MaxProduct_Brute.java`
+- `MaxProduct_Optimal.java`
+- `MaxProduct_Brute.cpp`
+- `MaxProduct_Optimal.cpp`
 
-int main() {
-    vector<vector<int>> testCases = {
-        {2, 3, -2, 4},
-        {-2, 0, -1},
-        {-2, 3, -4},
-        {0, 2, -2, -3, 0, 4, -1}
-    };
+---
 
-  for (auto& test : testCases) {
-        cout << maxProductBrute(test) << endl;
-    }
-}
-
-⏳Complexity Analysis:
-⏱️ Time Complexity: O(n²)
-💾 Space Complexity: O(1)
-
-
-🔹 Optimal Approach (Java – Kadane's for Product):
-public class MaxProductOptimal {
-    public static int maxProduct(int[] nums) {
-        int maxProd = nums[0], minProd = nums[0], result = nums[0];
-
-  for (int i = 1; i < nums.length; i++) {
-            int current = nums[i];
-
-  if (current < 0) {
-                int temp = maxProd;
-                maxProd = minProd;
-                minProd = temp;
-            }
-
-  maxProd = Math.max(current, current * maxProd);
-            minProd = Math.min(current, current * minProd);
-
-  result = Math.max(result, maxProd);
-        }
-
-  return result;
-    }
-
-  public static void main(String[] args) {
-        int[][] testCases = {
-            {2, 3, -2, 4},
-            {-2, 0, -1},
-            {-2, 3, -4},
-            {0, 2, -2, -3, 0, 4, -1}
-        };
-
-  for (int[] test : testCases) {
-            System.out.println(maxProduct(test));
-        }
-    }
-}
-
-
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
-
-int maxProductOptimal(vector<int>& nums) {
-    int maxProd = nums[0], minProd = nums[0], result = nums[0];
-
-  for (int i = 1; i < nums.size(); i++) {
-        if (nums[i] < 0) swap(maxProd, minProd);
-
-  maxProd = max(nums[i], nums[i] * maxProd);
-   minProd = min(nums[i], nums[i] * minProd);
-
-  result = max(result, maxProd);
-    }
-
-  return result;
-}
-
-int main() {
-    vector<vector<int>> testCases = {
-        {2, 3, -2, 4},
-        {-2, 0, -1},
-        {-2, 3, -4},
-        {0, 2, -2, -3, 0, 4, -1}
-    };
-
-  for (auto& test : testCases) {
-        cout << maxProductOptimal(test) << endl;
-    }
-}
-
-⏳Complexity Analysis:
-⏱️ Time Complexity: O(n)
-💾 Space Complexity: O(1)
-
-
-
-
-
-
-
-
-
-
-
+## 📌 Tags
+`Array`, `Kadane`, `Dynamic Programming`, `Prefix Product`, `Sliding Window`
 
 
 
