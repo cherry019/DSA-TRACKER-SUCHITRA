@@ -1,5 +1,20 @@
 # DSA-TRACKER-SUCHITRA
 
+## 🧠 Acknowledgements & References
+
+This repository contains my Data Structures and Algorithms practice solutions.  
+The following resources helped me understand the concepts and build these solutions:
+
+- [ChatGPT by OpenAI] — for guidance, explanations & sample code.
+- [LeetCode Editorials]  — for hints and optimal approaches.
+- [GeeksforGeeks]  — for theoretical concepts and problem insights.
+- YouTube Channels — like CodeHelp by Babbar, Striver’s SDE Sheet explanations.
+- My own understanding and learning during practice.
+
+> All code is written, reviewed, and tested by me.  
+> Some logic inspiration and problem-solving patterns are derived from open public resources.
+
+
 # 🧠 Problem 1: Two Sum
 
 ## 📘 Problem Statement
