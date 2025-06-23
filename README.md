@@ -42,6 +42,8 @@ For each `num`, check if `target - num` is already in the map.
 **Space Complexity**: `O(n)`
 
 ---
+
+
 # ⚡ Problem 2: Maximum Subarray (Kadane's Algorithm)
 
 ## 📘 Problem Statement
@@ -90,12 +92,6 @@ Given an integer array `nums`, find the contiguous subarray (containing at least
 - `MaxSubarray_Optimal.java`
 - `MaxSubarray_Brute.cpp`
 - `MaxSubarray_Optimal.cpp`
-
-
-
-
-
-
 
 
 
