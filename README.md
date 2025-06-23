@@ -149,7 +149,7 @@ Your task is to **sort the array in-place**, so that all `0`s come first, follow
 
 ## 🧪 Multiple Test Cases (Used in Code)
 
-```text
+
 Input:  [0, 2, 1, 2, 0, 1]
 Output: [0, 0, 1, 1, 2, 2]
 
@@ -161,14 +161,15 @@ Output: [1, 1, 1]
 
 Input:  [2, 2, 2, 1, 0]
 Output: [0, 1, 2, 2, 2]
+ 
 
+## 📂 Code Files 
 
-## 📂 Code Files
-
-- `SortColors_Brute.java`
+-  `SortColors_Brute.java`
 - `SortColors_Optimal.java`
 - `SortColors_Brute.cpp`
 - `SortColors_Optimal.cpp`
+```text
 
 
 
