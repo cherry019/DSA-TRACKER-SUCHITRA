@@ -42,43 +42,61 @@ For each `num`, check if `target - num` is already in the map.
 **Space Complexity**: `O(n)`
 
 ---
+# ⚡ Problem 2: Maximum Subarray (Kadane's Algorithm)
+
+## 📘 Problem Statement
+Given an integer array `nums`, find the contiguous subarray (containing at least one number) which has the **largest sum** and return its sum.
+
+---
+
+## 📚 DSA Pattern
+- Brute Force: Prefix Sum on all subarrays
+- Optimal: Kadane’s Algorithm (Dynamic Programming)
+
+---
+
+## 🧪 Test Cases
+
+| Input                       | Output |
+|----------------------------|--------|
+| [-2,1,-3,4,-1,2,1,-5,4]     | 6      |
+| [1]                        | 1      |
+| [5,4,-1,7,8]               | 23     |
+| [-1,-2,-3,-4]              | -1     |
+
+---
+
+## 💡 Brute Force Approach
+
+**Logic**: Try every possible subarray and compute the sum.
+
+**Time Complexity**: `O(n²)`  
+**Space Complexity**: `O(1)`
+
+---
+
+## ⚡ Optimal Approach (Kadane’s Algorithm)
+
+**Logic**: Track current max ending at index `i`, and update global max.
+
+**Time Complexity**: `O(n)`  
+**Space Complexity**: `O(1)`
+
+---
+
+## 📂 Code Files
+
+- `MaxSubarray_Brute.java`
+- `MaxSubarray_Optimal.java`
+- `MaxSubarray_Brute.cpp`
+- `MaxSubarray_Optimal.cpp`
 
 
 
-✅ Problem 2: Maximum Subarray (Kadane’s Algorithm)
-### Problem Statement : Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
-
-📊 DSA Pattern
-1.Brute Force: All subarrays (prefix sum)
-2.Optimal: Kadane’s Algorithm (Dynamic Programming)
-
-🧪 Test Cases:
-1.Input : [-2,1,-3,4,-1,2,1,-5,4]  
-Output : 6
-2.Input : [1]
-Output : 1
-3.Input: [5,4,-1,7,8] 
-Output : 23
-
-🔸 Brute Force Approac:
-⏳Complexity Analysis:
-⏱️ Time Complexity: O(n²)
-💾 Space Complexity: O(1)
 
 
-### 🔍 Code Explanation (Java Optimal)
-1.Initialize currSum and maxSum to first element.
-2.Traverse from index 1 onward.
-3.Update currSum:
-  --If continuing the previous subarray is better, add to currSum.
-  --Else, start new subarray from current element.
- 4.Track max with maxSum.   ###
 
 
-🔹 Optimal Approach:
-⏳Complexity Analysis:
-⏱️ Time Complexity: O(n)
-💾 Space Complexity: O(1)
 
 
 ✅ Problem 3: Sort 0s, 1s, and 2s (Dutch National Flag Problem)
