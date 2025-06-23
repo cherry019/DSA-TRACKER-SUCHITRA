@@ -95,172 +95,81 @@ Given an integer array `nums`, find the contiguous subarray (containing at least
 
 
 
-✅ Problem 3: Sort 0s, 1s, and 2s (Dutch National Flag Problem)
-### Problem Statement : Given an array consisting only of 0s, 1s, and 2s, sort the array in ascending order in-place without using any sorting function.
+# 🔢 Problem 3: Sort Colors (0s, 1s, and 2s)
 
-📊 DSA Pattern
-1.Brute Force: Count sort (count and overwrite)
-2.Optimal: Dutch National Flag Algorithm (3-pointer method)
+## 📘 Problem Statement
+You are given an array `nums` consisting only of integers `0`, `1`, and `2`.
 
-🧪 Test Cases:
-1.Input : [2,0,2,1,1,0]
-Output : [0,0,1,1,2,2]
-2.Input :[2,0,1]
-Output : [0,1,2]
-
-🚀 Java Solutions
-🔸 Brute Force Approach (Java):
-import java.util.Arrays;
-
-public class SortColorsBrute {
-    public static void sortColors(int[] nums) {
-        int zero = 0, one = 0, two = 0;
-        for (int num : nums) {
-            if (num == 0) zero++;
-            else if (num == 1) one++;
-            else two++;
-        }
-        int i = 0;
-        while (zero-- > 0) nums[i++] = 0;
-        while (one-- > 0) nums[i++] = 1;
-        while (two-- > 0) nums[i++] = 2;
-    }
-
-  public static void main(String[] args) {
-        int[][] testCases = {
-            {2, 0, 2, 1, 1, 0},
-            {2, 0, 1},
-            {0, 0, 1, 2, 2, 1, 0}
-        };
-
-  for (int[] test : testCases) {
-            sortColors(test);
-            System.out.println(Arrays.toString(test));
-        }
-    }
-}
+Your task is to **sort the array in-place**, so that all `0`s come first, followed by all `1`s, and then all `2`s.
 
 
-🚀 C++ Solutions
-🔸 Brute Force Approach (C++):
-#include <iostream>
-#include <vector>
-using namespace std;
 
-void sortColorsBrute(vector<int>& nums) {
-    int zero = 0, one = 0, two = 0;
-    for (int num : nums) {
-        if (num == 0) zero++;
-        else if (num == 1) one++;
-        else two++;
-    }
+---
 
-  int index = 0;
-  while (zero--) nums[index++] = 0;
-  while (one--) nums[index++] = 1;
-  while (two--) nums[index++] = 2;
-}
+## 💡 Example Test Cases
 
-void printArray(vector<int> nums) {
-    for (int x : nums) cout << x << " ";
-    cout << endl;
-}
+| Input             | Output         |
+|------------------|----------------|
+| `[0,2,1,2,0,1]`   | `[0,0,1,1,2,2]` |
+| `[2,2,2,1,0]`     | `[0,1,2,2,2]`   |
+| `[1,1,1]`         | `[1,1,1]`       |
+| `[2,0,1]`         | `[0,1,2]`       |
 
-int main() {
-    vector<vector<int>> testCases = {
-        {2, 0, 2, 1, 1, 0},
-        {2, 0, 1},
-        {0, 0, 1, 2, 2, 1, 0}
-    };
+---
 
-  for (auto& test : testCases) {
-        sortColorsBrute(test);
-        printArray(test);
-    }
-}
+## 🧠 DSA Pattern
 
-⏳Complexity Analysis:
-⏱️ Time Complexity: O(n)
-💾 Space Complexity: O(1)
+- Brute Force: **Count sort**
+- Optimal: **Dutch National Flag Algorithm** (Three pointers)
 
+---
 
-🔹 Optimal Approach (Java – 3 Pointers):
-import java.util.Arrays;
+## 🔍 Brute Force Approach
 
-public class SortColorsOptimal {
-    public static void sortColors(int[] nums) {
-        int low = 0, mid = 0, high = nums.length - 1;
+1. Count number of 0s, 1s, and 2s.
+2. Overwrite array in the correct count order.
 
-  while (mid <= high) {
-            if (nums[mid] == 0) {
-                int temp = nums[low];
-                nums[low++] = nums[mid];
-                nums[mid++] = temp;
-            } else if (nums[mid] == 1) {
-                mid++;
-            } else {
-                int temp = nums[mid];
-                nums[mid] = nums[high];
-                nums[high--] = temp;
-            }
-        }
-    }
+### ✅ Time Complexity: `O(n)`  
+### ✅ Space Complexity: `O(1)`
 
-  public static void main(String[] args) {
-        int[][] testCases = {
-            {2, 0, 2, 1, 1, 0},
-            {2, 0, 1},
-            {0, 0, 1, 2, 2, 1, 0}
-        };
+---
 
-  for (int[] test : testCases) {
-            sortColors(test);
-            System.out.println(Arrays.toString(test));
-        }
-    }
-}
+## ⚡ Optimal Approach (Dutch National Flag)
+
+1. Use three pointers: `low`, `mid`, and `high`.
+2. Traverse the array once and place elements in correct partition:
+   - `0 → swap to front`
+   - `1 → skip`
+   - `2 → swap to end`
+
+### ✅ Time Complexity: `O(n)`  
+### ✅ Space Complexity: `O(1)`
+
+---
+
+## 🧪 Multiple Test Cases (Used in Code)
+
+```text
+Input:  [0, 2, 1, 2, 0, 1]
+Output: [0, 0, 1, 1, 2, 2]
+
+Input:  [2, 0, 1]
+Output: [0, 1, 2]
+
+Input:  [1, 1, 1]
+Output: [1, 1, 1]
+
+Input:  [2, 2, 2, 1, 0]
+Output: [0, 1, 2, 2, 2]
 
 
-🔹 Optimal Approach (C++ – 3 Pointers):
-#include <iostream>
-#include <vector>
-using namespace std;
+## 📂 Code Files
 
-void sortColorsOptimal(vector<int>& nums) {
-    int low = 0, mid = 0, high = nums.size() - 1;
+- `SortColors_Brute.java`
+- `SortColors_Optimal.java`
+- `SortColors_Brute.cpp`
+- `SortColors_Optimal.cpp`
 
-  while (mid <= high) {
-        if (nums[mid] == 0) {
-            swap(nums[low++], nums[mid++]);
-        } else if (nums[mid] == 1) {
-            mid++;
-        } else {
-            swap(nums[mid], nums[high--]);
-        }
-    }
-}
-
-void printArray(vector<int> nums) {
-    for (int x : nums) cout << x << " ";
-    cout << endl;
-}
-
-int main() {
-    vector<vector<int>> testCases = {
-        {2, 0, 2, 1, 1, 0},
-        {2, 0, 1},
-        {0, 0, 1, 2, 2, 1, 0}
-    };
-
-  for (auto& test : testCases) {
-        sortColorsOptimal(test);
-        printArray(test);
-    }
-}
-
-⏳Complexity Analysis:
-⏱️ Time Complexity: O(n)
-💾 Space Complexity: O(1)
 
 
 ✅ Problem 4: Move Zeroes to the End
