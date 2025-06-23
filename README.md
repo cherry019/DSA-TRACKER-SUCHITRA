@@ -1,31 +1,48 @@
 # DSA-TRACKER-SUCHITRA
-✅ Problem 1: Two Sum
-### Problem Statement : Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.
 
-📊 DSA Pattern
-1.Brute Force: Nested Loops
-2.Optimal: Hashing (using HashMap / unordered_map)
+# 🧠 Problem 1: Two Sum
 
-🧪 Test Cases : 
-| Input           | Target | Output  |
-| --------------- | ------ | ------- |
-| \[2, 7, 11, 15] | 9      | \[0, 1] |
-| \[3, 2, 4]      | 6      | \[1, 2] |
-| \[3, 3]         | 6      | \[0, 1] |
+## 📘 Problem Statement
+Given an array of integers `nums` and an integer `target`, return the indices of the two numbers such that they add up to `target`.
+
+---
+
+## 📚 DSA Pattern
+- Brute Force: Nested Loops
+- Optimal: Hashing using HashMap (Java) / unordered_map (C++)
+
+---
+
+## 🧪 Test Cases
+
+| Input            | Target | Output  |
+|------------------|--------|---------|
+| [2, 7, 11, 15]    | 9      | [0, 1]  |
+| [3, 2, 4]         | 6      | [1, 2]  |
+| [3, 3]            | 6      | [0, 1]  |
+| [1, 2, 3]         | 7      | []      |
+
+---
 
 ## 💡 Brute Force Approach
 
 **Logic**: Check every pair `(i, j)` such that `nums[i] + nums[j] == target`
 
 **Time Complexity**: `O(n²)`  
-**Space Complexity**: `O(1)`  
-**Reason**: Two nested loops; no extra space used.
+**Space Complexity**: `O(1)`
 
+---
 
-🔹 Optimal Approach 
-⏳Complexity Analysis:
-⏱️ Time Complexity: O(n)
-💾 Space Complexity: O(n)
+## ⚡ Optimal Approach
+
+**Logic**: Use a HashMap to store visited elements and their indices.  
+For each `num`, check if `target - num` is already in the map.
+
+**Time Complexity**: `O(n)`  
+**Space Complexity**: `O(n)`
+
+---
+
 
 
 ✅ Problem 2: Maximum Subarray (Kadane’s Algorithm)
