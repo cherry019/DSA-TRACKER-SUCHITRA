@@ -225,7 +225,7 @@ Given an integer array `nums`, move all `0`s to the end while maintaining the re
 
 ---
 
-## ✅ Code Files
+## 📂 Code Files
 
 - `MoveZeros_Brute.java`
 - `MoveZeros_Optimal.java`
@@ -280,7 +280,7 @@ Given an integer array `nums`, find the contiguous subarray (containing at least
 
 ---
 
-## ✅ Code Files
+## 📂 Code Files
 
 - `MaxProduct_Brute.java`
 - `MaxProduct_Optimal.java`
