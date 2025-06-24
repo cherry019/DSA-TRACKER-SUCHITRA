@@ -309,4 +309,70 @@ Given an integer array `nums`, find the contiguous subarray (containing at least
 
 
 
+---
+
+# Problem 6: Longest Substring Without Repeating Characters
+
+### ✅ Problem Statement:
+Given a string `s`, find the length of the **longest substring** without repeating characters.
+
+**Example:**
+```
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+```
+
+---
+
+### ✅ DSA Pattern:
+- Sliding Window
+- HashSet / HashMap
+
+---
+
+## 🔁 Brute Force Approach:
+
+### 🔸 Idea:
+- Generate all substrings.
+- Check if all characters in each substring are unique.
+- Keep track of the maximum length.
+
+### 🔸 Time Complexity:
+- **O(n^3)** (generating + checking uniqueness)
+
+### 🔸 Space Complexity:
+- **O(k)** for HashSet (k is substring length)
+
+---
+
+## ⚡ Optimal Approach (Sliding Window + HashSet)
+
+### 🔸 Idea:
+- Use two pointers (`start` and `end`) to represent a window.
+- Expand `end` and add characters to a set.
+- If a duplicate is found, remove characters from the `start`.
+
+### 🔸 Time Complexity:
+- **O(n)** → Each character is added and removed once.
+
+### 🔸 Space Complexity:
+- **O(min(n, k))** where k is the character set (e.g., 26 for lowercase).
+
+---
+
+## 🔍 Test Cases
+
+| Input        | Output | Explanation               |
+|--------------|--------|---------------------------|
+| "abcabcbb"   | 3      | "abc"                     |
+| "bbbbb"      | 1      | "b"                       |
+| "pwwkew"     | 3      | "wke"                     |
+| ""           | 0      | Empty string              |
+| "abcdef"     | 6      | All characters unique     |
+
+---
+
+
+
 
